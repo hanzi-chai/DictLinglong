@@ -17,7 +17,7 @@ for file in [f for f in os.listdir("纯词库") if os.path.isfile(f"纯词库/{f
 			if file_is_lansan:
 				ls.add(word)
 
-result = [x[0] for x in dicts.items() if x[1] > 3 and x[0] in ls]
+result = [x for x in ls if dicts[x] > 3]
 
 with open('交集.txt', 'w', encoding='utf-8') as f:
-	f.write('\n'.join(result))
+	f.write('\n'.join(sorted(result)))
